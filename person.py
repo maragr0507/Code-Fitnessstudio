@@ -35,8 +35,8 @@ class Person:
     
     
     def daten_aendern (self,name,alter,geburtsdatum,telefon,email):
-        """Ändert die gespeicherten Daten der Person"""
-        #Überschreibt die bisherigen Werte mit den neuen Werten 
+        """Aendert die gespeicherten Daten der Person"""
+        # Ueberschreibt die bisherigen Werte mit den neuen Werten 
 
         self.name= name 
         self.alter = alter

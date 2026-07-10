@@ -15,7 +15,7 @@ class Mitgliedsschaft:
         # Liste mit allen erlaubten leistungen 
         self.erlaubte_leistungen=[]
 
-        # Prüft, ob eine bestimmte Leistung erlaubt ist
+        # Prueft, ob eine bestimmte Leistung erlaubt ist
     def hat_leistung(self,leistung):
         """ 
         Rueckgabe:

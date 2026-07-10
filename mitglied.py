@@ -22,7 +22,7 @@ class Mitglied(Person):
         # Mitgliedschaft des Mitglieds 
         self.mitgliedschaft=mitgliedschaft
 
-        # Ein Mitglied kann mehrere Kurse buchen und mehrere Geräte reservieren. Dafür eignet sich eine Liste.
+        # Ein Mitglied kann mehrere Kurse buchen und mehrere Geraete reservieren. Dafuer eignet sich eine Liste.
         self.gebuchte_kurse = []
         self.reservierte_geraete = []
 
@@ -33,9 +33,9 @@ class Mitglied(Person):
             """Entfernt einen Kurs aus den gebuchten Kursen."""
             self.gebuchte_kurse.remove(kurs)
     def geraet_reservieren(self, geraet):
-            """Reserviert ein gerät für das Mitglied"""
+            """Reserviert ein Geraet fuer das Mitglied"""
             self.reservierte_geraete.append(geraet)
     def geraet_freigeben(self, geraet):
-            """Gibt ein reserviertes Gerät wieder frei"""
+            """Gibt ein reserviertes Geraet wieder frei"""
             self.reservierte_geraete.remove(geraet)
 
