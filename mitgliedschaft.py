@@ -4,7 +4,7 @@ mitgliedschaft.py
 Die Klasse Mitgliedschaft beschreibt eine Mitgliedschaft im Fitnessstudio.
 
 """
-class Mitgliedsschaft: 
+class Mitgliedschaft: 
     def __init__(self,typ,preis):
         # Typ der Mitgliedschaft
         self.typ=typ
