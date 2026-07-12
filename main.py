@@ -75,8 +75,10 @@ def main()-> None:
     kette.standort_hinzufuegen(standort1)
     kette.standort_hinzufuegen(standort2)
 
-    print("Standorte: ")
-    kette.zeige_alle_standorte()
+    # Alle Standorte der Fitnesstudio-Kette ausgeben
+    print("Standorte:")
+    for standortname in kette.zeige_alle_standorte():
+        print("-", standortname)
 
     print("Kursbuchungen: ")
 
