@@ -28,23 +28,23 @@ class Mitglied(Person):
         self.reservierte_geraete = []
 
     def kurs_buchen(self,kurs)-> str:
-     """Bucht einen Kurs für das Mitglied."""
+        """Bucht einen Kurs für das Mitglied."""
 
-        # Prüfen, ob die Mitgliedschaft die Leistung erlaubt
-     if not self.mitgliedschaft.hat_leistung(kurs.benoetigte_leistung):
-        raise FitnessstudioException("Diese Mitgliedschaft erlaubt keine Kursbuchung.")
+        # Pruefen, ob die Mitgliedschaft die Leistung erlaubt
+        if not self.mitgliedschaft.hat_leistung(kurs.benoetigte_leistung):
+            raise FitnessstudioException("Diese Mitgliedschaft erlaubt keine Kursbuchung.")
         
-        # Mitglied zum Kurs hinzufügen
-     meldung = kurs.mitglied_hinzufuegen(self)
-        # Nur hinzufügen, wenn das Mitglied tatsächlich Teilnehmer geworden ist
-     if self in kurs.teilnehmer:
-        self.gebuchte_kurse.append(kurs)
-
-     return meldung
-    def kurs_stornieren(self, kurs)-> None:
+        # Mitglied zum Kurs hinzufuegen
+        meldung = kurs.mitglied_hinzufuegen(self)
+        # Nur hinzufuegen, wenn das Mitglied tatsaechlich Teilnehmer geworden ist
+        if self in kurs.teilnehmer:
+            self.gebuchte_kurse.append(kurs)
+        
+        return meldung
+    def kurs_stornieren(self, kurs)-> str:
         """Storniert einen bereits gebuchten Kurs."""
 
-        # Prüfen, ob der Kurs überhaupt gebucht wurde
+        # Pruefen, ob der Kurs ueberhaupt gebucht wurde
         if kurs not in self.gebuchte_kurse:
             raise FitnessstudioException("Dieser Kurs wurde nicht gebucht.")
 
@@ -56,33 +56,34 @@ class Mitglied(Person):
 
         # Erfolgsmeldung zurückgeben
         return meldung
-    def geraet_reservieren(self, geraet)-> None:
+    
+    def geraet_reservieren(self, geraet)-> str:
         """Reserviert ein Geraet fuer das Mitglied"""
-            # Prüfen, ob die Mitgliedschaft die Leistung erlaubt
+        # Pruefen, ob die Mitgliedschaft die Leistung erlaubt
         if not self.mitgliedschaft.hat_leistung("geraet_reservieren"):
             raise FitnessstudioException("Diese Mitgliedschaft erlaubt keine Geräte-Reservierung.")
 
-        # Gerät reservieren
+        # Geraet reservieren
         meldung = geraet.reservieren(self)
 
-        # Gerät in die Liste der reservierten Geräte aufnehmen
+        # Geraet in die Liste der reservierten Geraete aufnehmen
         self.reservierte_geraete.append(geraet)
 
-        # Erfolgsmeldung zurückgeben
+        # Erfolgsmeldung zurueckgeben
         return meldung
     
-    def geraet_freigeben(self, geraet)-> None:
+    def geraet_freigeben(self, geraet)-> str:
         """Gibt ein reserviertes Geraet wieder frei"""
 
-        # Prüfen, ob das Gerät überhaupt reserviert wurde
+        # Pruefen, ob das Geraet ueberhaupt reserviert wurde
         if geraet not in self.reservierte_geraete:
             raise FitnessstudioException("Dieses Gerät wurde nicht von diesem Mitglied reserviert.")
 
-        # Gerät freigeben
+        # Geraet freigeben
         meldung = geraet.freigeben()
 
-        # Gerät aus der Reservierungsliste entfernen
+        # Geraet aus der Reservierungsliste entfernen
         self.reservierte_geraete.remove(geraet)
 
-        # Erfolgsmeldung zurückgeben
+        # Erfolgsmeldung zurueckgeben
         return meldung
