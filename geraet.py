@@ -9,14 +9,7 @@ Ein Geraet kann drei Status haben:
 - "in_wartung"
 """
 
-try:
-    # Diese Exception-Datei soll Person 1 erstellen.
-    from fitnessstudioexception import FitnessstudioException
-except ImportError:
-    # Falls exceptions.py noch nicht existiert,
-    # kann diese Datei trotzdem einzeln getestet werden.
-    class FitnessstudioException(Exception):
-        pass
+from fitnessstudioexception import FitnessstudioException
 
 
 class Geraet:
@@ -27,7 +20,7 @@ class Geraet:
     laufband = Geraet("Laufband", 101)
     """
 
-    def __init__(self, name: str, geraetenummer: int)-> None:
+    def __init__(self, name: str, geraetenummer: int) -> None:
         # Name des Geraets, z. B. "Laufband"
         self.name = name
 

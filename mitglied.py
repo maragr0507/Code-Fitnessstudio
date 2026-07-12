@@ -1,5 +1,3 @@
-from person import Person
-from fitnessstudioexception import FitnessstudioException
 """
 mitglied.py 
 
@@ -11,6 +9,11 @@ Ein Mitglied hat:
 - eine Liste reservierter Geraete
 
 """
+
+from fitnessstudioexception import FitnessstudioException
+from person import Person
+
+
 class Mitglied(Person):
     """Die Klasse Mitglied beschreibt ein Mitglied im Fitnessstudio"""
     def __init__(self,name: str, alter: int,geburtsdatum: str,telefon: str,email: str, mitgliedsnummer: int, mitgliedschaft)-> None:
@@ -27,7 +30,7 @@ class Mitglied(Person):
         self.gebuchte_kurse = []
         self.reservierte_geraete = []
 
-    def kurs_buchen(self,kurs)-> str:
+    def kurs_buchen(self, kurs) -> str:
         """Bucht einen Kurs für das Mitglied."""
 
         # Pruefen, ob die Mitgliedschaft die Leistung erlaubt
@@ -37,7 +40,7 @@ class Mitglied(Person):
         # Mitglied zum Kurs hinzufuegen
         meldung = kurs.mitglied_hinzufuegen(self)
         # Nur hinzufuegen, wenn das Mitglied tatsaechlich Teilnehmer geworden ist
-        if self in kurs.teilnehmer:
+        if self in kurs.teilnehmer and kurs not in self.gebuchte_kurse:
             self.gebuchte_kurse.append(kurs)
         
         return meldung
@@ -67,7 +70,8 @@ class Mitglied(Person):
         meldung = geraet.reservieren(self)
 
         # Geraet in die Liste der reservierten Geraete aufnehmen
-        self.reservierte_geraete.append(geraet)
+        if geraet not in self.reservierte_geraete:
+            self.reservierte_geraete.append(geraet)
 
         # Erfolgsmeldung zurueckgeben
         return meldung

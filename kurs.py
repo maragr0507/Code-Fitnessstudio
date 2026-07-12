@@ -12,14 +12,7 @@ Ein Kurs hat:
 
 """
 
-try:
-    # Diese Exception-Datei soll Person 1 erstellen.
-    from fitnessstudioexception import FitnessstudioException
-except ImportError:
-    # Falls die Datei exceptions.py noch nicht existiert,
-    # kann diese Datei trotzdem getestet werden.
-    class FitnessstudioException(Exception):
-        pass
+from fitnessstudioexception import FitnessstudioException
 
 
 class Kurs:
@@ -30,7 +23,17 @@ class Kurs:
     yoga = Kurs("Yoga", trainer1, 10, "kurs_buchen")
     """
 
-    def __init__(self, name: str, trainer=None, max_teilnehmer=10, benoetigte_leistung="kurs_buchen")-> None:
+    def __init__(
+        self,
+        name: str,
+        trainer=None,
+        max_teilnehmer: int = 10,
+        benoetigte_leistung: str = "kurs_buchen",
+    ) -> None:
+        if max_teilnehmer <= 0:
+            raise FitnessstudioException(
+                "Die maximale Teilnehmerzahl muss groesser als 0 sein."
+            )
         # Name des Kurses, z. B. "Yoga"
         self.name = name
 
@@ -49,7 +52,7 @@ class Kurs:
         # Welche Leistung die Mitgliedschaft erlauben muss
         self.benoetigte_leistung = benoetigte_leistung
 
-    def platz_verfuegbar(self)-> None:
+    def platz_verfuegbar(self) -> bool:
         """
         Prueft, ob im Kurs noch ein Platz frei ist.
 
@@ -105,6 +108,11 @@ class Kurs:
         if len(self.warteliste) > 0:
             naechstes_mitglied = self.warteliste.pop(0)
             self.teilnehmer.append(naechstes_mitglied)
+
+            # Auch die persönliche Kursliste des nachgerückten Mitglieds
+            # muss aktualisiert werden. Sonst wären die Daten widersprüchlich.
+            if self not in naechstes_mitglied.gebuchte_kurse:
+                naechstes_mitglied.gebuchte_kurse.append(self)
 
         return f"{mitglied.name} wurde aus dem Kurs {self.name} entfernt."
 

@@ -28,8 +28,15 @@ class Trainer(Person):
 
     def kurs_uebernehmen(self,kurs)-> None:
         """Fuegt einen Kurs zur Liste hinzu."""
-        self.kurse.append(kurs)
+        if kurs not in self.kurse:
+            self.kurse.append(kurs)
+        kurs.trainer = self
+
     def kurs_entfernen(self,kurs)-> None:
         """Entfernt einen Kurs aus der Liste."""
-        self.kurse.remove(kurs)
+        if kurs not in self.kurse:
+            raise ValueError("Der Trainer betreut diesen Kurs nicht.")
 
+        self.kurse.remove(kurs)
+        if kurs.trainer is self:
+            kurs.trainer = None

@@ -4,21 +4,26 @@ mitgliedschaft.py
 Die Klasse Mitgliedschaft beschreibt eine Mitgliedschaft im Fitnessstudio.
 
 """
-class Mitgliedschaft: 
-    def __init__(self,typ,preis):
+class Mitgliedschaft:
+    def __init__(
+        self,
+        typ: str,
+        preis: float,
+        erlaubte_leistungen: list[str] | None = None,
+    ) -> None:
         # Typ der Mitgliedschaft
-        self.typ=typ
+        self.typ = typ
 
         #Monatlicher Preis der Mitgliedschaft
-        self.preis=preis
+        self.preis = preis
 
         # Liste mit allen erlaubten leistungen 
-        self.erlaubte_leistungen=[]
+        self.erlaubte_leistungen = erlaubte_leistungen or []
 
         # Prueft, ob eine bestimmte Leistung erlaubt ist
-    def hat_leistung(self,leistung):
+    def hat_leistung(self, leistung: str) -> bool:
         """ 
         Rueckgabe:
         True  -> Die Leistung ist enthalten.
         False -> Die Leistung ist nicht enthalten."""
-        return leistung in self.erlaubte_leistungen 
+        return leistung in self.erlaubte_leistungen

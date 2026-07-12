@@ -20,11 +20,12 @@ def main()-> None:
     print(" Fitnessstudio-Verwaltung")
 
     # Mitgliedschaften erstellen 
-    basic= Mitgliedschaft("Basic", 15.99 )
-    basic.erlaubte_leistungen=[]
-
-    plus= Mitgliedschaft("Plus", 29.99)
-    plus.erlaubte_leistungen=["kurs_buchen","geraet_reservieren"]
+    basic = Mitgliedschaft("Basic", 15.99)
+    plus = Mitgliedschaft(
+        "Plus",
+        29.99,
+        ["kurs_buchen", "geraet_reservieren"],
+    )
 
     # Mitglieder erstellen 
     mitglied1=Mitglied ("Max Mustermann", 22,"10.04.2002","015155555555","maxmust@gmail.de",1001,plus)
