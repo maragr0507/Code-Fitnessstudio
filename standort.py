@@ -15,7 +15,7 @@ class Standort:
     Die Klasse Standort beschreibt ein einzelnes Fitnessstudio-Gebäude.
     """
 
-    def __init__(self, name, adresse):
+    def __init__(self, name: str, adresse: str)-> None:
         # Name des Standortes, z. B. "Fitnessstudio Hanau"
         self.name = name
 
@@ -35,7 +35,7 @@ class Standort:
         # Wichtig: hier PLURAL benutzen, also mitglieder
         self.mitglieder = []
 
-    def kurs_hinzufuegen(self, kurs):
+    def kurs_hinzufuegen(self, kurs)-> None:
         """
         Fügt einen Kurs zum Standort hinzu.
         """
@@ -44,7 +44,7 @@ class Standort:
         if kurs not in self.kurse:
             self.kurse.append(kurs)
 
-    def geraet_hinzufuegen(self, geraet):
+    def geraet_hinzufuegen(self, geraet)-> None:
         """
         Fügt ein Gerät zum Standort hinzu.
         """
@@ -53,7 +53,7 @@ class Standort:
         if geraet not in self.geraete:
             self.geraete.append(geraet)
 
-    def trainer_hinzufuegen(self, trainer):
+    def trainer_hinzufuegen(self, trainer)-> None:
         """
         Fügt einen Trainer zum Standort hinzu.
         """
@@ -62,7 +62,7 @@ class Standort:
         if trainer not in self.trainer:
             self.trainer.append(trainer)
 
-    def mitglied_hinzufuegen(self, mitglied):
+    def mitglied_hinzufuegen(self, mitglied)-> None:
         """
         Fügt ein Mitglied zum Standort hinzu.
         """
@@ -71,7 +71,7 @@ class Standort:
         if mitglied not in self.mitglieder:
             self.mitglieder.append(mitglied)
 
-    def zeige_kurse(self):
+    def zeige_kurse(self)-> None:
         """
         Gibt alle Kurse des Standortes aus.
         """
@@ -81,7 +81,7 @@ class Standort:
         for kurs in self.kurse:
             print("-", kurs.name)
 
-    def zeige_geraete(self):
+    def zeige_geraete(self)-> None:
         """
         Gibt alle Geräte des Standortes aus.
         """
@@ -91,7 +91,7 @@ class Standort:
         for geraet in self.geraete:
             print("-", geraet.name)
 
-    def zeige_trainer(self):
+    def zeige_trainer(self)-> None:
         """
         Gibt alle Trainer des Standortes aus.
         """
@@ -101,7 +101,7 @@ class Standort:
         for trainer in self.trainer:
             print("-", trainer.name)
 
-    def zeige_mitglieder(self):
+    def zeige_mitglieder(self)-> None:
         """
         Gibt alle Mitglieder des Standortes aus.
         """
@@ -111,7 +111,7 @@ class Standort:
         for mitglied in self.mitglieder:
             print("-", mitglied.name)
 
-    def __str__(self):
+    def __str__(self)-> str:
         """
         Gibt eine kurze Beschreibung des Standortes zurück.
         """

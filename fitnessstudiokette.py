@@ -13,14 +13,14 @@ class FitnessstudioKette:
     kette = FitnessstudioKette("FitPlus")
     """
 
-    def __init__(self, name):
+    def __init__(self, name: str)-> None:
         # Name der Fitnessstudio-Kette
         self.name = name
 
         # Liste aller Standorte
         self.standorte = []
 
-    def standort_hinzufuegen(self, standort):
+    def standort_hinzufuegen(self, standort)-> None:
         """
         Fuegt einen Standort zur Fitnessstudio-Kette hinzu.
         """
@@ -29,7 +29,7 @@ class FitnessstudioKette:
         if standort not in self.standorte:
             self.standorte.append(standort)
 
-    def zeige_alle_standorte(self):
+    def zeige_alle_standorte(self)-> list[str]:
         """
         Gibt alle Standorte als Liste von Namen zurueck.
         """
@@ -41,7 +41,7 @@ class FitnessstudioKette:
 
         return standortnamen
 
-    def suche_standort(self, name):
+    def suche_standort(self, name:str):
         """
         Sucht einen Standort nach seinem Namen.
 
@@ -56,7 +56,7 @@ class FitnessstudioKette:
 
         return None
 
-    def __str__(self):
+    def __str__(self)-> str:
         """
         Gibt eine kurze Beschreibung der Fitnessstudio-Kette zurueck.
         """

@@ -27,7 +27,7 @@ class Geraet:
     laufband = Geraet("Laufband", 101)
     """
 
-    def __init__(self, name, geraetenummer):
+    def __init__(self, name: str, geraetenummer: int)-> None:
         # Name des Geraets, z. B. "Laufband"
         self.name = name
 
@@ -40,7 +40,7 @@ class Geraet:
         # Hier wird gespeichert, welches Mitglied das Geraet reserviert hat
         self.reserviert_von = None
 
-    def ist_verfuegbar(self):
+    def ist_verfuegbar(self)-> bool:
         """
         Prueft, ob das Geraet verfuegbar ist.
 
@@ -50,7 +50,7 @@ class Geraet:
         """
         return self.status == "verfuegbar"
 
-    def reservieren(self, mitglied):
+    def reservieren(self, mitglied)-> str:
         """
         Reserviert das Geraet fuer ein Mitglied.
 
@@ -72,7 +72,7 @@ class Geraet:
 
         return f"{self.name} wurde fuer {mitglied.name} reserviert."
 
-    def freigeben(self):
+    def freigeben(self)-> str:
         """
         Gibt ein reserviertes Geraet wieder frei.
         """
@@ -87,7 +87,7 @@ class Geraet:
 
         return f"{self.name} ist wieder verfuegbar."
 
-    def wartung_starten(self):
+    def wartung_starten(self)-> str:
         """
         Setzt das Geraet in Wartung.
 
@@ -103,7 +103,7 @@ class Geraet:
 
         return f"{self.name} ist jetzt in Wartung."
 
-    def wartung_beenden(self):
+    def wartung_beenden(self)-> str:
         """
         Beendet die Wartung und macht das Geraet wieder verfuegbar.
         """
@@ -116,7 +116,7 @@ class Geraet:
 
         return f"{self.name} ist wieder verfuegbar."
 
-    def __str__(self):
+    def __str__(self)-> str:
         """
         Gibt eine kurze Beschreibung des Geraets zurueck.
         """

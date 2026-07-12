@@ -30,7 +30,7 @@ class Kurs:
     yoga = Kurs("Yoga", trainer1, 10, "kurs_buchen")
     """
 
-    def __init__(self, name, trainer=None, max_teilnehmer=10, benoetigte_leistung="kurs_buchen"):
+    def __init__(self, name: str, trainer=None, max_teilnehmer=10, benoetigte_leistung="kurs_buchen")-> None:
         # Name des Kurses, z. B. "Yoga"
         self.name = name
 
@@ -49,7 +49,7 @@ class Kurs:
         # Welche Leistung die Mitgliedschaft erlauben muss
         self.benoetigte_leistung = benoetigte_leistung
 
-    def platz_verfuegbar(self):
+    def platz_verfuegbar(self)-> None:
         """
         Prueft, ob im Kurs noch ein Platz frei ist.
 
@@ -59,7 +59,7 @@ class Kurs:
         """
         return len(self.teilnehmer) < self.max_teilnehmer
 
-    def mitglied_hinzufuegen(self, mitglied):
+    def mitglied_hinzufuegen(self, mitglied)-> str:
         """
         Fuegt ein Mitglied zum Kurs hinzu.
 
@@ -86,7 +86,7 @@ class Kurs:
         self.warteliste_hinzufuegen(mitglied)
         return f"Der Kurs {self.name} ist voll. {mitglied.name} wurde auf die Warteliste gesetzt."
 
-    def mitglied_entfernen(self, mitglied):
+    def mitglied_entfernen(self, mitglied)-> str:
         """
         Entfernt ein Mitglied aus dem Kurs.
 
@@ -108,7 +108,7 @@ class Kurs:
 
         return f"{mitglied.name} wurde aus dem Kurs {self.name} entfernt."
 
-    def warteliste_hinzufuegen(self, mitglied):
+    def warteliste_hinzufuegen(self, mitglied)-> None:
         """
         Fuegt ein Mitglied zur Warteliste hinzu.
         """
@@ -119,7 +119,7 @@ class Kurs:
 
         self.warteliste.append(mitglied)
 
-    def __str__(self):
+    def __str__(self)-> str:
         """
         Gibt eine kurze Beschreibung des Kurses zurueck.
         """

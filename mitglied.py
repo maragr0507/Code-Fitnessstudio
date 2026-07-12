@@ -12,7 +12,7 @@ Ein Mitglied hat:
 """
 class Mitglied(Person):
     """Die Klasse Mitglied beschreibt ein Mitglied im Fitnessstudio"""
-    def __init__(self,name, alter,geburtsdatum,telefon,email, mitgliedsnummer, mitgliedschaft):
+    def __init__(self,name: str, alter: int,geburtsdatum: str,telefon: str,email: str, mitgliedsnummer: int, mitgliedschaft)-> None:
         # Eigenschaften der Klasse Person 
         super().__init__(name,alter,geburtsdatum,telefon,email )
 
@@ -26,16 +26,16 @@ class Mitglied(Person):
         self.gebuchte_kurse = []
         self.reservierte_geraete = []
 
-    def kurs_buchen(self,kurs):
+    def kurs_buchen(self,kurs)-> None:
             """Fuegt einen Kurs zu den gebuchten Kursen hinzu. """
             self.gebuchte_kurse.append(kurs)
-    def kurs_stornieren(self, kurs):
+    def kurs_stornieren(self, kurs)-> None:
             """Entfernt einen Kurs aus den gebuchten Kursen."""
             self.gebuchte_kurse.remove(kurs)
-    def geraet_reservieren(self, geraet):
+    def geraet_reservieren(self, geraet)-> None:
             """Reserviert ein Geraet fuer das Mitglied"""
             self.reservierte_geraete.append(geraet)
-    def geraet_freigeben(self, geraet):
+    def geraet_freigeben(self, geraet)-> None:
             """Gibt ein reserviertes Geraet wieder frei"""
             self.reservierte_geraete.remove(geraet)
 
