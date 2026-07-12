@@ -15,31 +15,30 @@ from standort import Standort
 from fitnessstudiokette import FitnessstudioKette
 from fitnessstudioexception import FitnessstudioException
 
-
 def main(): 
 
     print(" Fitnessstudio-Verwaltung")
 
-    #Mitgliedschaften erstellen 
+    # Mitgliedschaften erstellen 
     basic= Mitgliedschaft("Basic", 15.99 )
-    basic.erlaubte_Leistungen=[]
+    basic.erlaubte_leistungen=[]
 
     plus= Mitgliedschaft("Plus", 29.99)
     plus.erlaubte_leistungen=["kurs_buchen","geraet_reservieren"]
 
-    #Mitglieder erstellen 
+    # Mitglieder erstellen 
     mitglied1=Mitglied ("Max Mustermann", 22,"10.04.2002","015155555555","maxmust@gmail.de",1001,plus)
 
     mitglied2=Mitglied("Anna Schuhmacher",20,"05.07.2006","025635725637","annaschuh@web.de",1002,plus)
 
     mitglied3=Mitglied("Lisa Becker",20,"02.06.2006","01567342542","lisabecker@gmx.de",1003,basic)
 
-    #Trainer erstellen
+    # Trainer erstellen
     trainer1=Trainer("Aileen Baum",34,"04.07.1992","015233425797","aileen@primeclub.de",101,"Yoga")
 
     trainer2=Trainer("Tom Müller", 25,"28.02.2001","0256745362879","tom@primeclub.de",102,"Extrem Spin Racing")
 
-    #Kurs erstellen
+    # Kurs erstellen
     yoga=Kurs("Yoga",trainer1,15,"kurs_buchen")
 
     extremspinracing=Kurs("Extrem Spin Racing",trainer2,10,"kurs_buchen")
@@ -47,7 +46,7 @@ def main():
     trainer1.kurs_uebernehmen(yoga)
     trainer2.kurs_uebernehmen(extremspinracing)
 
-    #Geraete erstellen 
+    # Geraete erstellen 
     laufband=Geraet("Laufband",202)
     beinpresse=Geraet("Beinpresse",203)
     stairmaster=Geraet("Stairmaster",204)
@@ -71,7 +70,7 @@ def main():
     standort2.geraet_hinzufuegen(beinpresse)
     standort2.geraet_hinzufuegen(stairmaster)
 
-    #Fitnessstudio-Kette
+    # Fitnessstudio-Kette
     kette=FitnessstudioKette("PrimeClub")
     kette.standort_hinzufuegen(standort1)
     kette.standort_hinzufuegen(standort2)
@@ -88,10 +87,12 @@ def main():
         # Mitglied 2 bucht den Kurs "Extrem Spin Racing"
         print(mitglied2.kurs_buchen(extremspinracing))
 
-    except FitnessstudioException as fehler 
+    except FitnessstudioException as fehler: 
         print("Fehler: ", fehler)
 
     # Teilnehmer im Yoga Kurs anzeigen
+
+    print("Teilnehmer im Yoga-Kurs: ")
     for teilnehmer in yoga.teilnehmer:
         print("-", teilnehmer.name)
 
@@ -113,8 +114,8 @@ def main():
     print("Geratereservierung: ")
     
     try:
-        # Mitglied reserviert einen Stairmaster 
-        print(mitglied1.geraet_reservieren(stairmaster))
+        # Mitglied reserviert eein Laufband 
+        print(mitglied1.geraet_reservieren(laufband))
 
         # Zweites Mitglied reserviert die Beinpresse
         print(mitglied2.geraet_reservieren(beinpresse))
@@ -124,8 +125,8 @@ def main():
 
     # Geraet wird wieder freigegeben
     try:
-        # Mitglied gibt den Stairmaster wieder frei
-        print(mitglied1.geraet_freigeben(stairmaster))
+        # Mitglied gibt das Laufband wieder frei
+        print(mitglied1.geraet_freigeben(laufband))
 
     except FitnessstudioException as fehler:
         print("Fehler:", fehler)
@@ -135,16 +136,16 @@ def main():
     print("Geraet in Wartung setzen: ")
     
     try:
-        #Laufband wird in Wartung gesetzt
-        print(laufband.wartung_starten())
+        #Stairmaster wird in Wartung gesetzt
+        print(stairmaster.wartung_starten())
 
-        #Staus des Geraets ausgeben
-        print(laufband)
+        #Status des Geraets ausgeben
+        print(stairmaster)
 
     except FitnessstudioException as fehler:
          print("Fehler:", fehler)
 
-    #Mitgliedsdatenanzteigen
+    # Mitglieds Daten anzteigen
     print("Mitgliedsdaten:")
 
     mitglied1.daten_anzeigen()
