@@ -1,7 +1,7 @@
 """
 main.py 
 
-Startdatei des Fitnesstudio-Programms.
+Startdatei des Fitnessstudio-Programms.
 
 Hier werden Beispielobjekte erstellt und 
 """
