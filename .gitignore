@@ -1,0 +1,17 @@
+# Von Python automatisch erzeugte Dateien
+__pycache__/
+*.py[cod]
+
+# Virtuelle Python-Umgebungen
+.venv/
+venv/
+
+# Entwicklungswerkzeuge und Betriebssystemdateien
+.idea/
+.vscode/
+.DS_Store
+
+# Test- und Analyse-Zwischendateien
+.coverage
+htmlcov/
+.pytest_cache/
