@@ -1,0 +1,2 @@
+# Dieses Projekt verwendet ausschließlich die Python-Standardbibliothek.
+# Es müssen keine externen Pakete installiert werden.
