@@ -15,7 +15,7 @@ from standort import Standort
 from fitnessstudiokette import FitnessstudioKette
 from fitnessstudioexception import FitnessstudioException
 
-def main(): 
+def main()-> None: 
 
     print(" Fitnessstudio-Verwaltung")
 
@@ -39,7 +39,7 @@ def main():
     trainer2=Trainer("Tom Müller", 25,"28.02.2001","0256745362879","tom@primeclub.de",102,"Extrem Spin Racing")
 
     # Kurs erstellen
-    yoga=Kurs("Yoga",trainer1,15,"kurs_buchen")
+    yoga=Kurs("Yoga",trainer1,10,"kurs_buchen")
 
     extremspinracing=Kurs("Extrem Spin Racing",trainer2,10,"kurs_buchen")
 
