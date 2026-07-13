@@ -45,7 +45,7 @@ Repository herunterladen oder klonen und anschließend in den Projektordner
 wechseln:
 
 ```bash
-git clone <GITHUB-LINK-DES-PROJEKTS>
+git clone https://github.com/maragr0507/Code-Fitnessstudio.git
 cd Code-Fitnessstudio
 ```
 
